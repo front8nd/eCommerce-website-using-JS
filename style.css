@@ -1,0 +1,219 @@
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+.custom-primary {
+  background-color: #00bf63;
+}
+.custom-col {
+  color: #00bf63 !important;
+}
+
+.btn-primary-custom {
+  background-color: #00bf63 !important;
+  border-color: #00bf63 !important;
+  transition: background-color 0.3s ease, border-color 0.3s ease !important;
+  color: #fff !important;
+}
+.btn-primary-custom:hover {
+  background-color: #00af5b !important;
+  border-color: #00bf63 !important;
+  color: #fff !important;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+  border: none !important;
+}
+
+.card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+.card-img-top {
+  width: 200px;
+  height: 200px;
+  object-fit: fill;
+  padding: 10px;
+}
+
+.card-title {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.card-text {
+  margin-bottom: 10px;
+}
+
+.card-body {
+  background-color: aliceblue;
+}
+
+.category-badge,
+.price-badge,
+.reviews-badge,
+.ratings-badge {
+  font-size: 0.9rem;
+  background-color: #00af5b !important;
+  color: #fff !important; /* Set text color to white */
+  border-radius: 20px !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px !important;
+  margin-top: 5px;
+}
+.badge i {
+  color: #fff; /* Set icon color to white */
+  margin-right: 5px;
+}
+.badge .badge-text {
+  color: #fff !important; /* Set text color to white */
+}
+.card-title a {
+  text-decoration: none !important;
+}
+/* Media Query for smaller card on mobile devices */
+@media (max-width: 576px) {
+  /* .card {
+    width: 80%;
+    margin: 0 auto;
+  } */
+  .category-badge,
+  .price-badge,
+  .reviews-badge,
+  .ratings-badge,
+  .card button {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .card button,
+  .category-badge,
+  .price-badge,
+  .reviews-badge,
+  .ratings-badge {
+    font-size: 0.7rem;
+  }
+  .category-badge,
+  .price-badge,
+  .reviews-badge,
+  .ratings-badge {
+    padding: 4px 8px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .card button,
+  .category-badge,
+  .price-badge,
+  .reviews-badge,
+  .ratings-badge {
+    font-size: 0.7rem;
+  }
+  .category-badge,
+  .price-badge,
+  .reviews-badge,
+  .ratings-badge {
+    padding: 4px 8px !important;
+  }
+}
+
+/* Product Details Page */
+
+.Main-Image {
+  width: 70%;
+  margin: 0 auto;
+  display: block;
+  height: 400px; /* Set a fixed height for the main image container */
+  overflow: hidden; /* Hide any overflow content */
+}
+
+.Main-Image img {
+  width: 100%; /* Make the image fill its container */
+  height: 100%; /* Ensure the image fills its container */
+  object-fit: fill; /* Stretch the image to fill the container */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.Sub-Image-Group {
+  display: flex;
+  justify-content: center;
+  max-width: 70%; /* Adjust the max-width as needed */
+  margin: 10px auto;
+}
+
+.Sub-Image {
+  flex: 1; /* Make all sub-images occupy equal space */
+  cursor: pointer;
+  margin: 5px 3px; /* Add spacing between sub-images */
+  outline: 2px solid transparent; /* Add transparent outline to sub-images */
+}
+
+.Sub-Image img {
+  width: 100%; /* Make images fill their containers */
+  height: 100%; /* Ensure the image fills its container */
+  object-fit: cover; /* Stretch the image to fit */
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.Sub-Image:hover {
+  outline-color: #00bf63; /* Set the outline color of the hovered image */
+}
+
+.Sub-Image.active {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3); /* Add a stronger shadow to the selected image */
+  outline-color: #00bf63; /* Set the outline color of the selected image */
+}
+
+.quantityControl {
+  display: inline-block;
+  background-color: aliceblue;
+}
+
+#quantityInput {
+  border: none;
+  background-color: transparent;
+  width: 0.8rem;
+}
+
+#quantityInput::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  border: none;
+}
+#decreaseBtn,
+#increaseBtn {
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 38px;
+  margin: 0;
+}
+
+.Product-desc {
+  background-color: aliceblue;
+}
+
+.ProductSizeColor {
+  display: flex;
+}
+
+.navbar-nav .nav-item:hover .nav-link {
+  color: #fff; /* Change text color on hover */
+}
+
+/* Active Effect */
+.navbar-nav .nav-item .nav-link.active {
+  color: #fff; /* Change text color when active */
+}
+.dropdown-menu {
+  --bs-dropdown-link-active-bg: #00bf63 !important;
+}
+
+.hide {
+  display: none;
+}
