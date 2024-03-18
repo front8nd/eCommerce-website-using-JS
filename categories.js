@@ -7,14 +7,14 @@ const fetchAPI = async () => {
   let id = url.searchParams.get("id");
 
   console.log(id);
-  let res = await fetch(`https://fakestoreapi.com/products/category/${id}`);
+  let res = await fetch(`https://dummyjson.com/products/category/${id}`);
   let DATA = await res.json();
-
+  let fetchProudcts = DATA.products;
   // FETCHING PRODUCTS
-  DATA.map((product) => {
+  fetchProudcts.map((product) => {
     let card = document.querySelector(".col").cloneNode(true);
     card.classList.remove("hide");
-    card.querySelector(".card-img-top").setAttribute("src", product.image);
+    card.querySelector(".card-img-top").setAttribute("src", product.images[0]);
     let title = product.title;
     if (title.length > 24) {
       title = title.substring(0, 24) + "...";
@@ -33,10 +33,10 @@ const fetchAPI = async () => {
     ).innerHTML = `<i class="fas fa-tag"></i>${product.category.toUpperCase()}`;
     card.querySelector(
       ".ratings-badge"
-    ).innerHTML = `<i class="fas fa-star"></i> ${product.rating.rate}`;
+    ).innerHTML = `<i class="fas fa-star"></i> ${product.rating}`;
     card.querySelector(
       ".reviews-badge"
-    ).innerHTML = `<i class="fa-solid fa-comment"></i>${product.rating.count}`;
+    ).innerHTML = `<i class="fa-solid fa-comment"></i>${product.stock}`;
     card.querySelector(".price-badge").innerText = `$ ${product.price}`;
 
     document.querySelector(".row").appendChild(card);

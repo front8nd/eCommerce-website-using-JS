@@ -217,3 +217,9 @@ body {
 .hide {
   display: none;
 }
+
+.pageContainer {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0px;
+}
