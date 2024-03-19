@@ -1,5 +1,5 @@
-const API = "https://fakestoreapi.com/products";
-const categoryAPI = "https://fakestoreapi.com/products/categories";
+const API = "https://dummyjson.com/products/?limit=8";
+const categoryAPI = "https://dummyjson.com/products/categories";
 
 const fetchAPI = async () => {
   // fetch products
@@ -43,6 +43,9 @@ const fetchAPI = async () => {
   });
   document.querySelector(".col").remove();
 
+  document.querySelector(".loader").classList.add("hide");
+  document.querySelector(".con").style.height = 0;
+
   // fetch categories for menu
   const resCAT = await fetch(categoryAPI);
   let DATACAT = await resCAT.json();
@@ -60,6 +63,25 @@ const fetchAPI = async () => {
   document.querySelector(".dropdown-item").remove();
   document.querySelector(".mobile-item").remove();
 };
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const searchQuery = document.querySelector(".search-input").value.trim();
+  console.log(searchQuery);
+  if (searchQuery !== "") {
+    const url = `results.html?query=${encodeURIComponent(searchQuery)}`;
+    window.location.href = url;
+  } else {
+    alert("Please enter a search query");
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .querySelector(".search-form")
+    .addEventListener("submit", handleSubmit);
+});
 fetchAPI();
 // document.addEventListener("DOMContentLoaded", () => {
 //   fetchAPI();

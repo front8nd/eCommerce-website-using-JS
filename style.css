@@ -223,3 +223,12 @@ body {
   justify-content: center;
   margin: 40px 0px;
 }
+
+.btn-outline-success {
+  color: white !important;
+  border-color: white !important;
+}
+
+.btn-outline-success:hover {
+  background-color: #00af5b;
+}

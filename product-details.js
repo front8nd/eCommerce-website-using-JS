@@ -4,7 +4,6 @@ const fetchAPI = async () => {
 
   let res = await fetch(`https://dummyjson.com/products/${id}`);
   let data = await res.json();
-  console.log(data);
 
   data.images.map((imageUrl) => {
     const subImgGroupClone = document
@@ -38,6 +37,8 @@ const fetchAPI = async () => {
   });
   document.querySelector(".dropdown-item").remove();
   document.querySelector(".mobile-item").remove();
+  document.querySelector(".loader").classList.add("hide");
+  document.querySelector(".con").style.height = 0;
 };
 
 fetchAPI();
@@ -71,4 +72,23 @@ document.addEventListener("DOMContentLoaded", () => {
       mainImage.src = event.target.src;
     }
   });
+});
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  const searchQuery = document.querySelector(".search-input").value.trim();
+
+  if (searchQuery !== "") {
+    const url = `results.html?query=${encodeURIComponent(searchQuery)}`;
+
+    window.location.href = url;
+  } else {
+    alert("Please enter a search query");
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  document
+    .querySelector(".search-form")
+    .addEventListener("submit", handleSubmit);
 });

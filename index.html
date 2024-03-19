@@ -19,6 +19,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="loading.css" />
   </head>
   <body>
     <nav class="navbar custom-primary shadow">
@@ -71,6 +72,20 @@
                   >
                 </li>
               </ul>
+              <form class="d-flex search-form" role="search">
+                <input
+                  class="form-control me-2 search-input"
+                  type="text"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button
+                  class="btn btn-outline-success search-button"
+                  type="submit"
+                >
+                  Search
+                </button>
+              </form>
             </div>
           </div>
         </nav>
@@ -141,11 +156,28 @@
                 >
               </li>
             </ul>
+            <form class="d-flex search-form" role="search">
+              <input
+                class="form-control me-2 search-input"
+                type="text"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                class="btn btn-primary-custom search-button"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
           </div>
         </div>
       </div>
     </nav>
     <!--Content Section-->
+    <div class="con">
+      <div class="loader"></div>
+    </div>
     <div class="container-fluid bg-light">
       <div class="container my-4">
         <div
@@ -179,7 +211,7 @@
         </div>
       </div>
     </div>
-    <div class="pageContainer">
+    <div class="pageContainer d-none">
       <a class="nextLink">
         <button class="nextPage btn btn-primary-custom">Load More</button>
       </a>
