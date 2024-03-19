@@ -4,7 +4,7 @@ const fetchAPI = async () => {
 
   let res = await fetch(`https://dummyjson.com/products/${id}`);
   let data = await res.json();
-
+  // product data
   data.images.map((imageUrl) => {
     const subImgGroupClone = document
       .querySelector(".Sub-Image")
@@ -16,11 +16,13 @@ const fetchAPI = async () => {
   document.querySelector(".main-img").setAttribute("src", data.images[0]);
 
   document.querySelector(".Product-title").innerText = data.title;
+  document.querySelector("title").textContent = data.title;
   document.querySelector(".category-badge").innerText =
     data.category.toUpperCase();
   document.querySelector(".Product-desc").innerHTML = `${data.description}.`;
   document.querySelector(".Product-price").innerText = `$ ${data.price}`;
 
+  // category
   const categoryAPI = "https://dummyjson.com/products/categories";
   const resCAT = await fetch(categoryAPI);
   let DATACAT = await resCAT.json();
@@ -35,13 +37,17 @@ const fetchAPI = async () => {
     menuMobile.setAttribute("href", `categories.html?id=${category}`);
     document.querySelector(".mobile-menu").appendChild(menuMobile);
   });
+
+  //removing dummy classes
   document.querySelector(".dropdown-item").remove();
   document.querySelector(".mobile-item").remove();
   document.querySelector(".loader").classList.add("hide");
   document.querySelector(".con").style.height = 0;
 };
 
-fetchAPI();
+document.addEventListener("DOMContentLoaded", () => {
+  fetchAPI();
+});
 
 // QUANITITY CHANGER
 document.addEventListener("DOMContentLoaded", () => {
@@ -64,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
+//image switcher
 document.addEventListener("DOMContentLoaded", () => {
   let mainImage = document.querySelector(".main-img");
   document.addEventListener("mouseover", (event) => {
@@ -73,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
+// search function
 function handleSubmit(event) {
   event.preventDefault();
 
@@ -92,3 +98,21 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector(".search-form")
     .addEventListener("submit", handleSubmit);
 });
+
+// add to cart
+const addCartBtn = document.querySelector(".addCart");
+const handleCartSubmit = (event) => {
+  event.preventDefault();
+  fetch("https://dummyjson.com/products/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      title: "BMW Pencil",
+      /* other product data */
+    }),
+  })
+    .then((res) => res.json())
+    .then(console.log);
+};
+
+addCartBtn.addEventListener("click", handleCartSubmit);

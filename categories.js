@@ -5,6 +5,7 @@ const fetchAPI = async () => {
   // fetch products
   let url = new URL(window.location.href);
   let id = url.searchParams.get("id");
+  document.querySelector("title").textContent = id.toUpperCase();
 
   console.log(id);
   let res = await fetch(`https://dummyjson.com/products/category/${id}`);
@@ -20,6 +21,7 @@ const fetchAPI = async () => {
       title = title.substring(0, 24) + "...";
     }
     card.querySelector(".product-title").innerText = title;
+
     card
       .querySelector(".product-title")
       .setAttribute("href", `product-details.html?id=${product.id}`);

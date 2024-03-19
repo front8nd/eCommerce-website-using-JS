@@ -6,9 +6,12 @@ const nextPage = document.querySelector(".nextPage");
 
 let url = new URLSearchParams(window.location.search);
 let searchQuery = new URLSearchParams(window.location.search);
+
 let getQuery = url.get("query");
 let pageNum = url.get("page");
 let page = 1;
+document.querySelector("title").textContent = getQuery.toUpperCase();
+
 const loadPosts = async () => {
   let postsPerPage = 8;
   let skip = (page - 1) * postsPerPage;
